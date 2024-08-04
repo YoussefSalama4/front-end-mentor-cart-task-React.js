@@ -23,6 +23,7 @@ body {
   padding: 5%;
   display: flex;
   column-gap: 40px;
+  position: relative;
 }
 
 @keyframes goUp {
@@ -126,6 +127,9 @@ body {
   min-height: 400px;
   border-radius: 20px;
   padding: 20px;
+  position: sticky;
+  top: 20px;
+  left: 0;
 }
 
 .cart h3 {
@@ -280,4 +284,89 @@ body {
 }
 .confirm ul .order-price {
   padding: 10px;
+}
+
+@media (max-width: 1470px) {
+  .deserts {
+    width: 60%;
+  }
+  .deserts-list .desert {
+    width: 48%;
+  }
+  .cart {
+    width: 40%;
+  }
+}
+@media (max-width: 1070px) {
+  .deserts {
+    width: 45%;
+  }
+  .deserts-list .desert {
+    width: 100%;
+  }
+  .cart {
+    width: 50%;
+  }
+  .container {
+    justify-content: space-between;
+  }
+  .deleviry p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 756px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .deserts {
+    width: 60%;
+  }
+  .cart {
+    width: 60%;
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .deserts {
+    width: 80%;
+  }
+  .cart {
+    width: 80%;
+  }
+}
+@media (max-width: 520px) {
+  .confirm {
+    width: 400px;
+  }
+  .confirm ul li .order-details {
+    width: 70%;
+  }
+  .confirm ul li .order-details img {
+    width: 30%;
+  }
+}
+@media (max-width: 480px) {
+  .deserts {
+    width: 100%;
+  }
+
+  .cart {
+    width: 100%;
+  }
+}
+
+@media (max-width: 425px) {
+  .confirm {
+    width: 340px;
+  }
+  .confirm ul li .order-details {
+    width: 70%;
+  }
+  .confirm ul li .order-details img {
+    width: 25%;
+  }
 }

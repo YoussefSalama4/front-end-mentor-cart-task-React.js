@@ -11,6 +11,7 @@ export default function DesertList() {
             name={desert.name}
             category={desert.category}
             price={desert.price}
+            key={desert.name}
           />
         ))}
       </div>
