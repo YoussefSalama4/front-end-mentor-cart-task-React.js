@@ -1,6 +1,11 @@
 import Desert from "./Desert";
 import data from "../data.json";
-export default function DesertList() {
+export default function DesertsList({
+  onSelectDesert,
+  selectedDeserts,
+  onUpdateDesert,
+  onDeleteDesert,
+}) {
   return (
     <div className="deserts">
       <h3>Deserts</h3>
@@ -12,6 +17,10 @@ export default function DesertList() {
             category={desert.category}
             price={desert.price}
             key={desert.name}
+            onSelectDesert={onSelectDesert}
+            selectedDeserts={selectedDeserts}
+            onUpdateDesert={onUpdateDesert}
+            onDeleteDesert={onDeleteDesert}
           />
         ))}
       </div>

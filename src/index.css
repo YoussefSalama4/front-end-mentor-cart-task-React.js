@@ -16,6 +16,22 @@
   --Orange: rgb(194, 89, 9);
 }
 
+*::selection {
+  background-color: var(--Rose-500);
+  color: var(--Rose-100);
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--Rose-500);
+  height: 50px;
+}
+.sideNav::-webkit-scrollbar-thumb {
+  background-color: var(--Rose-100);
+}
 body {
   background-color: var(--Rose-100);
 }
@@ -81,10 +97,13 @@ body {
   border-radius: 10px;
   margin-bottom: 15px;
 }
+.deserts-list .desert img.selected {
+  border: 2px solid var(--Orange);
+}
 .deserts-list .desert .desert-img {
   position: relative;
 }
-.deserts-list .desert .desert-img button {
+.deserts-list .desert .desert-img .add-to-cart-btn {
   padding: 5px 20px;
   display: flex;
   cursor: pointer;
@@ -98,10 +117,48 @@ body {
   width: 60%;
   justify-content: center;
 }
-.deserts-list .desert button:hover {
+.deserts-list .desert .desert-img .control-count {
+  padding: 5px 20px;
+  display: flex;
+  border-radius: 30px;
+  border: none;
+  transition: 0.5s ease;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  justify-content: space-around;
+  background-color: var(--Orange);
+  color: white;
+}
+.deserts-list .desert .desert-img .control-count button {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.deserts-list .desert .desert-img .control-count button:hover {
+  background-color: var(--Red);
+  width: 22px;
+  height: 22px;
+  border: none;
+  outline: none;
+}
+.deserts-list .desert .desert-img .control-count button:nth-child(1):hover {
+  background-color: var(--Green);
+}
+.deserts-list .desert .add-to-cart-btn:hover {
   letter-spacing: 2px;
 }
-.deserts-list .desert button p {
+.deserts-list .desert .add-to-cart-btn p {
   padding-left: 5px;
 }
 .deserts-list .desert p {
@@ -253,12 +310,12 @@ body {
   align-items: center;
 }
 .confirm ul li .order-details {
-  width: 50%;
+  width: 80%;
   display: flex;
   gap: 10px;
 }
 .confirm ul li .order-details img {
-  width: 35%;
+  width: 25%;
   border-radius: 10px;
 }
 .confirm ul li .order-details .details {
@@ -285,7 +342,18 @@ body {
 .confirm ul .order-price {
   padding: 10px;
 }
-
+.empty {
+  height: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty .empty-description {
+  text-align: center;
+}
+.empty .empty-description p {
+  color: var(--Rose-500);
+}
 @media (max-width: 1470px) {
   .deserts {
     width: 60%;
@@ -315,7 +383,7 @@ body {
   }
 }
 
-@media (max-width: 756px) {
+@media (max-width: 800px) {
   .container {
     flex-direction: column;
     justify-content: center;
@@ -343,10 +411,10 @@ body {
     width: 400px;
   }
   .confirm ul li .order-details {
-    width: 70%;
+    width: 80%;
   }
   .confirm ul li .order-details img {
-    width: 30%;
+    width: 25%;
   }
 }
 @media (max-width: 480px) {
@@ -364,7 +432,7 @@ body {
     width: 340px;
   }
   .confirm ul li .order-details {
-    width: 70%;
+    width: 90%;
   }
   .confirm ul li .order-details img {
     width: 25%;

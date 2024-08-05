@@ -1,6 +1,18 @@
-export default function Confirm() {
+export default function Confirm({
+  selectedDeserts,
+  totalPrice,
+  setIsConfirmed,
+  isConfirmed,
+  onClearList,
+  onScrollToTop,
+}) {
+  function handleResetOrder() {
+    setIsConfirmed(false);
+    onClearList();
+    onScrollToTop();
+  }
   return (
-    <div className="confirm appear">
+    <div className={`confirm ${isConfirmed && "appear"}`}>
       <div className="check-mark">
         <svg
           width="48"
@@ -22,51 +34,28 @@ export default function Confirm() {
       <h1>Order Completed</h1>
       <p>We hope you enjoyed your food</p>
       <ul>
-        <li>
-          <div className="order-details">
-            <img src="assets/images/image-baklava-desktop.jpg" alt="test"></img>
-            <div className="details">
-              <h3>classic trimisu</h3>
-              <div className="price">
-                <span>1x</span>
-                <span>$5.5</span>
+        {selectedDeserts.map((desert) => (
+          <li key={desert.name}>
+            <div className="order-details">
+              <img src={desert.image} alt={desert.name}></img>
+              <div className="details">
+                <h3>{desert.name}</h3>
+                <div className="price">
+                  <span>{desert.count}x</span>
+                  <span>${desert.price}</span>
+                </div>
               </div>
             </div>
-          </div>
-          <p>$5.5</p>
-        </li>
-        <li>
-          <div className="order-details">
-            <img src="assets/images/image-baklava-desktop.jpg" alt="test"></img>
-            <div className="details">
-              <h3>classic trimisu</h3>
-              <div className="price">
-                <span>1x</span>
-                <span>$5.5</span>
-              </div>
-            </div>
-          </div>
-          <p>$5.5</p>
-        </li>
-        <li>
-          <div className="order-details">
-            <img src="assets/images/image-baklava-desktop.jpg" alt="test"></img>
-            <div className="details">
-              <h3>classic trimisu</h3>
-              <div className="price">
-                <span>1x</span>
-                <span>$5.5</span>
-              </div>
-            </div>
-          </div>
-          <p>$5.5</p>
-        </li>
+            <p>${desert.count * desert.price}</p>
+          </li>
+        ))}
+
         <div className="order-price">
           <p>Order total</p>
-          <h3>$46.5</h3>
+          <h3>${totalPrice}</h3>
         </div>
       </ul>
-      <button>Start new Order</button>
+      <button onClick={handleResetOrder}>Start new Order</button>
     </div>
   );
 }
