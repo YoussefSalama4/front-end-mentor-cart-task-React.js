@@ -1,4 +1,4 @@
-# front-end-mentor-cart-task-ract.js
+# front-end-mentor-cart-task-React.js
 
 This solution, developed using React.js, addresses a junior-level JavaScript challenge from Frontend Mentor.
 
